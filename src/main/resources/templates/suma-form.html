@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+    <html lang="es">
+        <head>
+            <title>TODO supply a title</title>
+            <meta charset="UTF-8">
+            <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        </head>
+        <body>
+            <div>Formulario Suma</div>
+
+            <form th:action="@{/suma}" th:object="${suma}" method="post">
+                <div class="d-grid gap-2 col-6 mx-auto">
+                    <div class="mb-3">
+                        <label for="num1" class="form-label">Primer Numero :</label>
+                        <input type="number" class="form-control" th:field="*{num1}" >
+                        <span th:if="${#fields.hasErrors('num1')}" th:errors="*{num1}" style="color: red;"/>
+                    </div>
+
+                    <div class="mb-3">
+                        <label for="num2" class="form-label">Segundo numero :</label>
+                        <input type="number" class="form-control" th:field="*{num2}" >
+                        <span th:if="${#fields.hasErrors('num2')}" th:errors="*{num2}" style="color: red;"/>
+
+                    </div>
+                    <button class="btn btn-primary" type="submit">Sumar</button>
+                </div>
+            </form>
+        </body>
+    </html>
